@@ -1,10 +1,18 @@
-var exec = require('child_process').exec;
-var waitpid = require('mbc_waitpid').waitpid;
+var assert = require("assert");
 
-var ps = exec('sleep 5');
+describe('require-waitpid', function() {
+	var waitpid = require('../lib/mbc_waitpid');
+});
 
-console.log("Waiting...");
+describe('waitpid-exit', function() {
+	var exec = require('child_process').exec;
+	var waitpid = require('../lib/mbc_waitpid');
 
-var r = waitpid(ps.pid);
+	var ps = exec('sleep 2');
+	var r = waitpid(ps.pid);
 
-console.log("Exit..." + r);
+        it('--should return exited', function(){
+            assert.equal(r, "exited");
+        });
+});
+

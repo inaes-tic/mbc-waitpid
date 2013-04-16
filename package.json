@@ -4,15 +4,20 @@
 	"description": "A node.js binding to the waitpid() syscall for mbc-mosto.",
         "main": "lib/mbc_waitpid.js",
 	"scripts": {
-		"install": "node-gyp rebuild"
+		"preinstall": "node-gyp rebuild",
+		"test": "mocha"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/AvianFlu/node-waitpid.git"
+		"url": "git://github.com/csrocha/mbc-waitpid.git"
+	},
+	"devDependencies": {
+		"mocha"    :  ">=1.7.x",
+		"should"   :  ">=1.2.x"
 	},
 	"keywords": [ "waitpid", "child process" ],
 	"author": { "name": "Cristian S. Rocha" },
-	"license": "GPL",
+	"license": "agplv3",
         "gypfile": true,
 	"readme": "",
 	"readmeFilename": "README.md",
