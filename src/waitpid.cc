@@ -35,7 +35,7 @@ Handle<Value> WaitPID(const Arguments& args) {
 		};
 
 		if (WIFEXITED(status)) {
-			msg = String::NewSymbol("exited");
+			return scope.Close(Integer::New(WEXITSTATUS(status)));
 		} else if (WIFSIGNALED(status)) {
 			msg = String::NewSymbol("killed");
 			printf("killed by signal %d\n", WTERMSIG(status));
